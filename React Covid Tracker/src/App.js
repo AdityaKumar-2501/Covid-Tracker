@@ -14,8 +14,11 @@ import { sortData, prettyPrintStat } from "./util";
 import numeral from "numeral";
 import Map from "./Map";
 import "leaflet/dist/leaflet.css";
-// import Login from "./Login";
-// import Register from "./Register";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
 
 const App = () => {
   const [country, setInputCountry] = useState("worldwide");
@@ -24,7 +27,7 @@ const App = () => {
   const [mapCountries, setMapCountries] = useState([]);
   const [tableData, setTableData] = useState([]);
   const [casesType, setCasesType] = useState("cases");
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  let [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
 
   useEffect(() => {
@@ -68,10 +71,19 @@ const App = () => {
       .then((data) => {
         setInputCountry(countryCode);
         setCountryInfo(data);
-        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        if (countryCode === "worldwide") {
+          setMapCenter = { lat: 34.80746, lng: -40.4796 };
+        } else {
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        }
+
         setMapZoom(4);
       });
   };
+
+  function setWorld() {
+    setMapCenter = { lat: 34.80746, lng: -40.4796 };
+  }
 
   return (
     <div className="app">
@@ -84,7 +96,9 @@ const App = () => {
               value={country}
               onChange={onCountryChange}
             >
-              <MenuItem value="worldwide">Worldwide</MenuItem>
+              <MenuItem value="worldwide" onClick={setWorld}>
+                Worldwide
+              </MenuItem>
               {countries.map((country) => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))}
@@ -124,29 +138,25 @@ const App = () => {
         />
       </div>
       <div className="app__right">
-        {/* <Router>
+        <Router>
           <Stack direction="row" spacing={2}>
-            <Link to="/login">
+            <Link to="/login" style={{ textDecoration: "none" }}>
               <Button variant="contained" color="success">
                 Login
               </Button>
             </Link>
-            <Link to="/register">
+            <Link to="/register" style={{ textDecoration: "none" }}>
               <Button variant="contained" color="error">
                 Register
               </Button>
             </Link>
           </Stack>
 
-          <Switch>
-            <Route path="/about">
-              <Login />
-            </Route>
-            <Route path="/users">
-              <Register />
-            </Route>
-          </Switch>
-        </Router> */}
+          <Routes>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+          </Routes>
+        </Router>
 
         <Card className="app__right">
           <CardContent>
