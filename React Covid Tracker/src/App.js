@@ -17,8 +17,6 @@ import "leaflet/dist/leaflet.css";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
 
 const App = () => {
   const [country, setInputCountry] = useState("worldwide");
@@ -138,26 +136,6 @@ const App = () => {
         />
       </div>
       <div className="app__right">
-        <Router>
-          <Stack direction="row" spacing={2}>
-            <Link to="/login" style={{ textDecoration: "none" }}>
-              <Button variant="contained" color="success">
-                Login
-              </Button>
-            </Link>
-            <Link to="/register" style={{ textDecoration: "none" }}>
-              <Button variant="contained" color="error">
-                Register
-              </Button>
-            </Link>
-          </Stack>
-
-          <Routes>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-          </Routes>
-        </Router>
-
         <Card className="app__right">
           <CardContent>
             <div className="app__information">
