@@ -10,8 +10,8 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://github.com/AdityaKumar-2501/Covid-Tracker/assets/87603870/43f18e2b-f213-4f92-8f31-03874dc1c54c" alt="project-screenshot" width="800" height="800/">
+<img src="https://github.com/AdityaKumar-2501/Covid-Tracker/assets/87603870/43f18e2b-f213-4f92-8f31-03874dc1c54c" alt="project-screenshot" width="500" height="500/">
 
-<img src="https://github.com/AdityaKumar-2501/Covid-Tracker/assets/87603870/15f06cce-3b20-4919-b238-fc9d6a8906ec" alt="project-screenshot" width="800" height="800/">
+<img src="https://github.com/AdityaKumar-2501/Covid-Tracker/assets/87603870/15f06cce-3b20-4919-b238-fc9d6a8906ec" alt="project-screenshot" width="500" height="500/">
 
-<img src="https://github.com/AdityaKumar-2501/Covid-Tracker/assets/87603870/a3f66171-95b6-4b11-9d58-20f2e68675a9" alt="project-screenshot" width="800" height="800/">
+<img src="https://github.com/AdityaKumar-2501/Covid-Tracker/assets/87603870/a3f66171-95b6-4b11-9d58-20f2e68675a9" alt="project-screenshot" width="500" height="500/">
